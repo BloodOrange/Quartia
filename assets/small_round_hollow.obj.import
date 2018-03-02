@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/small_round_hollow.obj-eb0d616024517b084b0c97bcb7abec9c.mesh"
+
+[deps]
+
+files=[ "res://.import/small_round_hollow.obj-eb0d616024517b084b0c97bcb7abec9c.mesh" ]
+
+source_file="res://assets/small_round_hollow.obj"
+source_md5="7efe0cbcec59ca8f195476d7bf290f58"
+
+dest_files=[ "res://.import/small_round_hollow.obj-eb0d616024517b084b0c97bcb7abec9c.mesh", "res://.import/small_round_hollow.obj-eb0d616024517b084b0c97bcb7abec9c.mesh" ]
+dest_md5="4c464f5d8912a59a2e54238eebb92dff"
+
+[params]
+
+generate_tangents=true

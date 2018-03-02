@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scenes/Pieces/BRFSPiece.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Pieces/BRFTPiece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pieces/BRHSPiece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pieces/BRHTPiece.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pieces/BSFSPiece.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Pieces/BSFTPiece.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pieces/BSHSPiece.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pieces/BSHTPiece.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Pieces/WRFSPiece.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Pieces/WRFTPiece.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Pieces/WRHSPiece.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Pieces/WRHTPiece.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Pieces/WSFSPiece.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Pieces/WSFTPiece.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Pieces/WSHSPiece.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Pieces/WSHTPiece.tscn" type="PackedScene" id=16]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[node name="Pieces" type="Spatial"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="BRFSPiece" parent="." index="0" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3977, 1.19614, 0 )
+
+[node name="BRFTPiece" parent="." index="1" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2367, 1.58314, 0 )
+
+[node name="BRHSPiece" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1776, 1.45391, 0 )
+
+[node name="BRHTPiece" parent="." index="3" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06679, 2.29452, 0 )
+
+[node name="BSFSPiece" parent="." index="4" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00947, 1.21104, 0 )
+
+[node name="BSFTPiece" parent="." index="5" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05996, 1.54073, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BSHSPiece" parent="." index="6" instance=ExtResource( 7 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16298, 1.4142, 0 )
+
+[node name="BSHTPiece" parent="." index="7" instance=ExtResource( 8 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21164, 2.14542, 0 )
+
+[node name="WRFSPiece" parent="." index="8" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19464, 1.30496, 0 )
+
+[node name="WRFTPiece" parent="." index="9" instance=ExtResource( 10 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22577, 1.69196, 0 )
+
+[node name="WRHSPiece" parent="." index="10" instance=ExtResource( 11 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25804, 1.57585, 0 )
+
+[node name="WRHTPiece" parent="." index="11" instance=ExtResource( 12 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30161, 2.40334, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WSFSPiece" parent="." index="12" instance=ExtResource( 13 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.32151, 1.31986, 0 )
+
+[node name="WSFTPiece" parent="." index="13" instance=ExtResource( 14 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4121, 1.64955, 0 )
+
+[node name="WSHSPiece" parent="." index="14" instance=ExtResource( 15 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4394, 1.52302, 0 )
+
+[node name="WSHTPiece" parent="." index="15" instance=ExtResource( 16 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5471, 2.25424, 0 )
+
+

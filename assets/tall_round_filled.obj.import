@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tall_round_filled.obj-605634673b2637875ed568afcb29e372.mesh"
+
+[deps]
+
+files=[ "res://.import/tall_round_filled.obj-605634673b2637875ed568afcb29e372.mesh" ]
+
+source_file="res://assets/tall_round_filled.obj"
+source_md5="6b3d6cb553fc50bd1d42d0436f570671"
+
+dest_files=[ "res://.import/tall_round_filled.obj-605634673b2637875ed568afcb29e372.mesh", "res://.import/tall_round_filled.obj-605634673b2637875ed568afcb29e372.mesh" ]
+dest_md5="c902ba0a3a69b2a5c7465f913da8948a"
+
+[params]
+
+generate_tangents=true
