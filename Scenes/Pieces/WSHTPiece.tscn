@@ -8,7 +8,7 @@
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="WSHTPiece" index="0" instance=ExtResource( 1 )]
+[node name="WSHTPiece" instance=ExtResource( 1 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14542, 0 )
 pieceName = "WSHT"
@@ -19,6 +19,7 @@ size = 0
 
 [node name="MeshInstance" parent="." index="0"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169381, 0 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 _sections_unfolded = [ "material" ]

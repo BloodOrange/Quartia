@@ -1,0 +1,33 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Panel Oak_Nor.jpg-537f29ff0fdb2ca8023df77409eedab8.s3tc.stex"
+path.etc2="res://.import/Panel Oak_Nor.jpg-537f29ff0fdb2ca8023df77409eedab8.etc2.stex"
+
+[deps]
+
+source_file="res://assets/Panel Oak/Panel Oak_Nor.jpg"
+source_md5="f5b54a15e07bd71fe760f7b318d65060"
+
+dest_files=[ "res://.import/Panel Oak_Nor.jpg-537f29ff0fdb2ca8023df77409eedab8.s3tc.stex", "res://.import/Panel Oak_Nor.jpg-537f29ff0fdb2ca8023df77409eedab8.etc2.stex" ]
+dest_md5="ee196189abd40d044dd7252c5bb7e9ae"
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=1
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

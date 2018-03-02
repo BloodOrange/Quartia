@@ -1,0 +1,33 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/Panel Cherry_Rou.jpg-137ee7ce106963250e3601cfeb7980f0.s3tc.stex"
+path.etc2="res://.import/Panel Cherry_Rou.jpg-137ee7ce106963250e3601cfeb7980f0.etc2.stex"
+
+[deps]
+
+source_file="res://assets/Panel Cherry/Panel Cherry_Rou.jpg"
+source_md5="8df1e41dfe5c5e3157d09a92158b6efb"
+
+dest_files=[ "res://.import/Panel Cherry_Rou.jpg-137ee7ce106963250e3601cfeb7980f0.s3tc.stex", "res://.import/Panel Cherry_Rou.jpg-137ee7ce106963250e3601cfeb7980f0.etc2.stex" ]
+dest_md5="52f9e45872ab71e9410e8d2946bed346"
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

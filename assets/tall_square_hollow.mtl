@@ -1,7 +1,7 @@
-# Blender MTL File: 'small_round_hollow.obj'
+# Blender MTL File: 'board.blend'
 # Material Count: 1
 
-newmtl None.007
+newmtl bois_noir
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
 Kd 0.640000 0.640000 0.640000

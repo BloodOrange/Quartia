@@ -19,9 +19,10 @@ size = 0
 
 [node name="MeshInstance" parent="." index="0"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.701249, 0 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
-_sections_unfolded = [ "material" ]
+_sections_unfolded = [ "Geometry", "LOD", "material" ]
 
 [node name="CollisionShape" parent="Area" index="0"]
 

@@ -17,22 +17,6 @@
 [ext_resource path="res://Scenes/Pieces/WSHSPiece.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Pieces/WSHTPiece.tscn" type="PackedScene" id=16]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [node name="Pieces" type="Spatial"]
 
 _sections_unfolded = [ "Transform" ]

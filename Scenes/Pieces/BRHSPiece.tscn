@@ -8,7 +8,7 @@
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="BRHSPiece" index="0" instance=ExtResource( 1 )]
+[node name="BRHSPiece" instance=ExtResource( 1 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45391, 0 )
 pieceName = "BRHS"
@@ -19,6 +19,7 @@ size = 0
 
 [node name="MeshInstance" parent="." index="0"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83779, 0 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 _sections_unfolded = [ "material" ]

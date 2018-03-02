@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Panel Cherry_Ref.jpg-dc96503015a4d70743e7694f50e96b9d.stex"
+
+[deps]
+
+source_file="res://assets/Panel Cherry/Panel Cherry_Ref.jpg"
+source_md5="ebb44a70c45c2fa1c10689ebe21fe7c7"
+
+dest_files=[ "res://.import/Panel Cherry_Ref.jpg-dc96503015a4d70743e7694f50e96b9d.stex" ]
+dest_md5="5cfa03a1ee457e099d1fef77d736a3db"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

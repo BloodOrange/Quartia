@@ -9,10 +9,10 @@ path="res://.import/small_square_filled.obj-e39b3c252cbfb1f1d6fdd56933dd5d3d.mes
 files=[ "res://.import/small_square_filled.obj-e39b3c252cbfb1f1d6fdd56933dd5d3d.mesh" ]
 
 source_file="res://assets/small_square_filled.obj"
-source_md5="80f111dbe27f7f6cd8848e1257bff276"
+source_md5="3ec52a05d55099fa9f6060c609855031"
 
 dest_files=[ "res://.import/small_square_filled.obj-e39b3c252cbfb1f1d6fdd56933dd5d3d.mesh", "res://.import/small_square_filled.obj-e39b3c252cbfb1f1d6fdd56933dd5d3d.mesh" ]
-dest_md5="639287a095fc610f63bf6f38f16f9b8b"
+dest_md5="ff22ec4956c8e9fe588e366a98c3a250"
 
 [params]
 
