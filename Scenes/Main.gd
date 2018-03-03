@@ -14,8 +14,6 @@ const BOARD_SIZE = 4
 
 var mode = SELECTION
 
-var turnAround = false
-var lastMousePosition = null
 var pickedPiece = null
 var board = []
 
@@ -24,15 +22,14 @@ var players = []
 var currentPlayerId = 0
 
 func _ready():
+	# Hack pour lancer la scène seul
 	Player1.nickname = "Jérémy"
 	Player1.color = "#2980b9"
 		
 	Player2.nickname = "Mathilde"
 	Player2.color = "#e74c3c"
 	
-	# Called every time the node is added to the scene.
-	# Initialization here
-	set_process_input(true)
+	# Création du plateau
 	for i in range(BOARD_SIZE):
 		board.append([])
 		board[i].append(null)
@@ -40,21 +37,10 @@ func _ready():
 		board[i].append(null)
 		board[i].append(null)
 	
+	# Ajout des joueurs
 	players.append(Player1)
 	players.append(Player2)
 	update_text()
-
-func _input(event):
-	if event is InputEventMouseButton && event.button_index == BUTTON_RIGHT:
-		turnAround = event.is_pressed()
-		if event.is_pressed():
-			lastMousePosition = event.position
-	elif event is InputEventMouseMotion:
-		if turnAround:
-			var relPosition = event.position - lastMousePosition
-			$CameraControl.rotate_y(-relPosition.x / 100.0)
-			#$CameraControl.rotate_x(relPosition.y / 100.0)
-			lastMousePosition = event.position
 
 func change_player():
 	currentPlayerId = (currentPlayerId + 1) % 2

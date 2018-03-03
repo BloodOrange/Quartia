@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Board/Board.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Board/ListPieces.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/OrbitCamera.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Board/ListPieces.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -97,7 +98,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Ambient Light" ]
 
-[node name="Main" type="Spatial"]
+[node name="Main" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
@@ -105,32 +106,21 @@ script = ExtResource( 1 )
 
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CameraControl" type="Spatial" parent="." index="1"]
+[node name="Gimbal" type="Spatial" parent="." index="1"]
 
-[node name="Camera" type="Camera" parent="CameraControl" index="0"]
+script = ExtResource( 3 )
+rotationXMin = -1.5708
+rotationXMax = 0.0
+zoomMin = 10.0
+zoomMax = 80.0
 
-transform = Transform( 1, 0, 0, 0, 0.677904, 0.73515, 0, -0.73515, 0.677904, 0, 16.4945, 16.8104 )
-keep_aspect = 1
-cull_mask = 1048575
-environment = null
-h_offset = 0.0
-v_offset = 0.0
-doppler_tracking = 0
-projection = 0
-current = false
-fov = 70.0
-size = 1.0
-near = 0.05
-far = 100.0
-_sections_unfolded = [ "Transform" ]
+[node name="GimbalInner" type="Spatial" parent="Gimbal" index="0"]
 
-[node name="Pieces" parent="CameraControl/Camera" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.749593, 0.661899, 0, -0.661899, 0.749593, 0, 0, 0 )
 
-transform = Transform( 0.2, 0, 0, 0, 0.2, -1.98682e-08, 0, 1.98682e-08, 0.2, 0, -2.10729, -3.39022 )
+[node name="OmniLight" type="OmniLight" parent="Gimbal/GimbalInner" index="0"]
 
-[node name="OmniLight" type="OmniLight" parent="CameraControl" index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0274, 13.728, 14.0507 )
+transform = Transform( 1, 0, 0, 0, 0.675293, -0.737551, 0, 0.737551, 0.675293, -12.0274, 0.0963168, 16.0959 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 2.0
@@ -151,9 +141,9 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="OmniLight2" type="OmniLight" parent="CameraControl" index="2"]
+[node name="OmniLight2" type="OmniLight" parent="Gimbal/GimbalInner" index="1"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9616, 13.728, 14.0507 )
+transform = Transform( 1, 0, 0, 0, 0.675293, -0.737551, 0, 0.737551, 0.675293, 15.9616, 0.0963168, 16.0959 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
@@ -174,9 +164,9 @@ omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
 
-[node name="OmniLight3" type="OmniLight" parent="CameraControl" index="3"]
+[node name="OmniLight3" type="OmniLight" parent="Gimbal/GimbalInner" index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019453, 13.728, -20.9932 )
+transform = Transform( 1, 0, 0, 0, 0.675293, -0.737551, 0, 0.737551, 0.675293, 0.019453, 25.9429, -7.56906 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 0.5
@@ -196,6 +186,26 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light" ]
+
+[node name="Camera" type="Camera" parent="Gimbal/GimbalInner" index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+
+[node name="Pieces" parent="Gimbal/GimbalInner/Camera" index="0" instance=ExtResource( 4 )]
+
+transform = Transform( 0.2, 0, 0, 0, 0.199999, -0.000709221, 0, 0.000709221, 0.199999, 0, -2.16618, -3.39779 )
 
 [node name="MarginContainer" type="MarginContainer" parent="." index="2"]
 
