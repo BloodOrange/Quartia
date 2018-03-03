@@ -19,6 +19,11 @@ config/icon="res://icon.png"
 Player1="*res://Scenes/Player.tscn"
 Player2="*res://Scenes/Player.tscn"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
 [rendering]
 
 quality/filters/use_nearest_mipmap_filter=true

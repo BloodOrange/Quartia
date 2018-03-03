@@ -5,7 +5,9 @@ extends Spatial
 # var b = "textvar"
 
 var isTurningAround = false
-var lastMousePosition = null
+var zoomMode = false
+var lastMousePosition1 = null
+var lastMousePosition2 = null
 
 export (float) var rotationXMin = -PI / 2.0
 export (float) var rotationXMax = 0.0
@@ -25,15 +27,48 @@ func _input(event):
 		if event.button_index == BUTTON_RIGHT:
 			isTurningAround = event.is_pressed()
 			if event.is_pressed():
-				lastMousePosition = event.position
+				lastMousePosition1 = event.position
 		elif event.button_index == BUTTON_WHEEL_UP and event.is_pressed():
 			zoom(0.9)
 		elif event.button_index == BUTTON_WHEEL_DOWN and event.is_pressed():
 			zoom(1.1)
 	elif event is InputEventMouseMotion:
 		if isTurningAround:
-			turnAround(event.position - lastMousePosition)
-			lastMousePosition = event.position
+			turnAround(event.position - lastMousePosition1)
+			lastMousePosition1 = event.position
+	elif event is InputEventScreenTouch:
+		if event.index == 0:
+			if zoomMode:
+				zoomMode = false
+			else:
+				isTurningAround = event.is_pressed()
+			if event.is_pressed():
+				lastMousePosition1 = event.position
+		elif event.index == 1:
+			zoomMode = event.is_pressed()
+			isTurningAround = false
+			if event.is_pressed():
+				lastMousePosition2 = event.position
+		else:
+			zoomMode = false
+	elif event is InputEventScreenDrag:
+		if isTurningAround:
+			turnAround(event.position - lastMousePosition1)
+			lastMousePosition1 = event.position
+		elif zoomMode:
+			var beforeDiff = lastMousePosition2 - lastMousePosition1
+			
+			if event.index == 0:
+				lastMousePosition1 = event.position
+			elif event.index == 1:
+				lastMousePosition2 = event.position
+			
+			var afterDiff = lastMousePosition2 - lastMousePosition1
+			
+			if beforeDiff.length() > afterDiff.length():
+				zoom(1.01)
+			else:
+				zoom(0.99)
 
 func turnAround(delta):
 	rotate_y(-delta.x / 100.0)
