@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Pieces/Piece.gd" type="Script" id=1]
 
-[node name="Piece" type="Spatial" index="0"]
+[node name="Piece" type="Spatial"]
 
 script = ExtResource( 1 )
 pieceName = null
@@ -24,6 +24,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = null
 skeleton = NodePath("..")
+_sections_unfolded = [ "Geometry" ]
 
 [node name="Area" type="Area" parent="." index="1"]
 

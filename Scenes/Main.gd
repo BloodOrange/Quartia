@@ -24,6 +24,12 @@ var players = []
 var currentPlayerId = 0
 
 func _ready():
+	Player1.nickname = "Jérémy"
+	Player1.color = "#2980b9"
+		
+	Player2.nickname = "Mathilde"
+	Player2.color = "#e74c3c"
+	
 	# Called every time the node is added to the scene.
 	# Initialization here
 	set_process_input(true)
@@ -180,12 +186,17 @@ func select_area(area):
 	
 	relTrans.x = 0.0
 	relTrans.z = 0.0
+	relTrans.y += 2.0
 	
 	var animTime = 1.0
 	
 	$Tween.interpolate_property(pickedPiece, "translation", pickedPiece.translation, relTrans, animTime, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	$Tween.interpolate_property(pickedPiece, "rotation_degrees", pickedPiece.rotation_degrees, Vector3(0.0, 0.0, 0.0), animTime, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	$Tween.interpolate_property(pickedPiece, "scale", pickedPiece.scale, Vector3(1.0, 1.0, 1.0), animTime, Tween.TRANS_EXPO, Tween.EASE_OUT)
+	
+	var finalTrans = relTrans
+	finalTrans.y -= 2.0
+	$Tween.interpolate_property(pickedPiece, "translation", relTrans, finalTrans, 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT, 0.5)
 	
 	$Tween.start()
 	
