@@ -113,7 +113,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 
-editor/display_folded = true
 layers = 1
 material_override = null
 cast_shadow = 1

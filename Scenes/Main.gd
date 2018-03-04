@@ -17,18 +17,9 @@ var mode = SELECTION
 var pickedPiece = null
 var board = []
 
-var players = []
+var currentPlayer = null
 
-var currentPlayerId = 0
-
-func _ready():
-	# Hack pour lancer la scène seul
-	Player1.nickname = "Jérémy"
-	Player1.color = "#2980b9"
-		
-	Player2.nickname = "Mathilde"
-	Player2.color = "#e74c3c"
-	
+func _ready():	
 	# Création du plateau
 	for i in range(BOARD_SIZE):
 		board.append([])
@@ -37,13 +28,14 @@ func _ready():
 		board[i].append(null)
 		board[i].append(null)
 	
-	# Ajout des joueurs
-	players.append(Player1)
-	players.append(Player2)
+	currentPlayer = Player1
 	update_text()
 
-func change_player():
-	currentPlayerId = (currentPlayerId + 1) % 2
+func next_player():
+	if currentPlayer == Player1:
+		currentPlayer = Player2
+	else:
+		currentPlayer = Player1
 
 func is_mode_selection():
 	return mode == SELECTION
@@ -149,7 +141,7 @@ func is_finish_game(lastX, lastY):
 	return win
 
 func update_text():
-	var text = "À [color=" + players[currentPlayerId].color + "]" + players[currentPlayerId].nickname + "[/color]"
+	var text = "À [color=" + currentPlayer.color + "]" + currentPlayer.nickname + "[/color]"
 	if mode == PLAYING:
 		text += " de jouer la pièce"
 	else:
@@ -157,13 +149,24 @@ func update_text():
 	$MarginContainer/Label.clear()
 	$MarginContainer/Label.append_bbcode(text)
 
-func pick_piece(piece):
+func picked_piece(piece):
+	# On ne pourrait plus jouer cette pièce
+	piece.remove_from_group("pieces")
+	
+	piece.scale *= 2.0
 	pickedPiece = piece
 	mode = PLAYING
-	change_player()
+	next_player()
 	update_text()
+	
+	currentPlayer.play_piece(piece)
 
-func select_area(area):
+func selected_area(area):
+	# On ne peut plus jouer sur cette case
+	#$CollisionShape/MeshInstance.visible = false
+	area.get_node("CollisionShape/MeshInstance").visible = false
+	area.remove_from_group("area")
+
 	var trans = pickedPiece.global_transform
 	var relTrans = pickedPiece.translation
 	pickedPiece.get_parent().remove_child(pickedPiece)
@@ -193,7 +196,7 @@ func select_area(area):
 	mode = SELECTION
 	
 	if is_finish_game(x, y):
-		var text = "[color=" + players[currentPlayerId].color + "]" + players[currentPlayerId].nickname + "[/color]"
+		var text = "[color=" + currentPlayer.color + "]" + currentPlayer.nickname + "[/color]"
 		text += " est l'heureux gagnant !"
 		$MarginContainer/Label.clear()
 		$MarginContainer/Label.append_bbcode(text)
@@ -201,3 +204,4 @@ func select_area(area):
 		mode = END
 	else:
 		update_text()
+		currentPlayer.pick_piece()

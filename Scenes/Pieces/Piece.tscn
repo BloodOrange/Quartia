@@ -2,7 +2,9 @@
 
 [ext_resource path="res://Scenes/Pieces/Piece.gd" type="Script" id=1]
 
-[node name="Piece" type="Spatial"]
+[node name="Piece" type="Spatial" index="0" groups=[
+"pieces",
+]]
 
 script = ExtResource( 1 )
 pieceName = null

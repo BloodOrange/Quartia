@@ -9,7 +9,7 @@ onready var main = get_node("/root/Main")
 export (int) var identifiant
 
 func _ready():
-	add_to_group("area")
+	pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -25,11 +25,11 @@ func enable():
 func _on_Area_mouse_entered():
 	if main.is_mode_playing():
 		var mat = null
-		if main.currentPlayerId == 1:
-			mat = preload("res://Scenes/Board/RedArea.tres")
-		else:
+		if main.currentPlayer == Player1:
 			mat = preload("res://Scenes/Board/BlueArea.tres")
-		$CollisionShape/MeshInstance.mesh.set_material(mat)
+		else:
+			mat = preload("res://Scenes/Board/RedArea.tres")
+		$CollisionShape/MeshInstance.mesh.material = mat
 		$CollisionShape/MeshInstance.visible = true
 
 
@@ -41,6 +41,7 @@ func _on_Area_mouse_exited():
 func _on_Area_input_event( camera, event, click_position, click_normal, shape_idx ):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_LEFT:
 		if main.is_mode_playing():
-			$CollisionShape/MeshInstance.visible = false
-			disable()
-			main.select_area(self)
+			# On desactive toutes les zones
+			get_tree().call_group("area", "disable")
+			
+			main.selected_area(self)

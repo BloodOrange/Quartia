@@ -13,7 +13,7 @@ export (int, "Tall", "Small") var size
 onready var main = get_node("/root/Main")
 
 func _ready():
-	add_to_group("pieces")
+	pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -24,7 +24,7 @@ func disable():
 	$Area/CollisionShape.disabled = true
 
 func enable():
-	$Area/Area/CollisionShape.disabled = false
+	$Area/CollisionShape.disabled = false
 
 func _on_Area_mouse_entered():
 	$MeshInstance.rotate_x(0.3141592)
@@ -37,6 +37,7 @@ func _on_Area_mouse_exited():
 func _on_Area_input_event( camera, event, click_position, click_normal, shape_idx ):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_LEFT:
 		if main.is_mode_selection():
-			disable()
-			scale *= 2.0
-			main.pick_piece(self)
+			# On desactive toutes les pièces à jouer
+			get_tree().call_group("pieces", "disable")
+			
+			main.picked_piece(self)

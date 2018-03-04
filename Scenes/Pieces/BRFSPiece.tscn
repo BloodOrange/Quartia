@@ -12,6 +12,10 @@ extents = Vector3( 1, 1, 1 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19614, 0 )
 _sections_unfolded = [ "Transform" ]
+color = 0
+shape = 0
+inside = 1
+size = 1
 
 [node name="MeshInstance" parent="." index="0"]
 

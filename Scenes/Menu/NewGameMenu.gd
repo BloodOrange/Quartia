@@ -9,8 +9,13 @@ onready var name2 = get_node("VBoxContainer/GridContainer/Name2")
 
 var startingCount = 5
 
+var HumanController = null
+var StupidController = null
+ 
 func _ready():
 	name1.grab_focus()
+	HumanController = preload("res://Scenes/Controller/HumanController.gd")
+	StupidController = preload("res://Scenes/Controller/StupidIAController.gd")
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -22,9 +27,11 @@ func _on_BtnBegin_pressed():
 	if name1.text.length() != 0 and name2.text.length() != 0:
 		Player1.nickname = name1.text
 		Player1.color = "#2980b9"
+		Player1.controller = HumanController.new()
 		
 		Player2.nickname = name2.text
 		Player2.color = "#e74c3c"
+		Player2.controller = StupidController.new()
 		
 		show_counter()
 		$VBoxContainer/BtnBegin.disabled = true
