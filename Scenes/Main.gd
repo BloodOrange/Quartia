@@ -19,6 +19,23 @@ var board = []
 
 var currentPlayer = null
 
+class CountProperty:
+	var color = 0
+	var shape = 0
+	var size = 0
+	var inside = 0
+	var nbManagedPieces = 0
+
+	func manage_piece(piece):
+		color += piece.color
+		shape += piece.shape
+		size += piece.size
+		inside += piece.inside
+		nbManagedPieces += 1
+	
+	func is_win():
+		return (nbManagedPieces == 4) && (color == 0 || color == 4 || shape == 0 || shape == 4 || size == 0 || size == 4 || inside == 0 || inside == 4)
+		
 func _ready():	
 	# Création du plateau
 	for i in range(BOARD_SIZE):
@@ -44,101 +61,27 @@ func is_mode_playing():
 	return mode == PLAYING
 
 func is_finish_game(lastX, lastY):
-	var win = false
+	var horizontalCounter = CountProperty.new()
+	var verticalCounter = CountProperty.new()
+	var diagCounter = CountProperty.new()
+	var invDiagCounter = CountProperty.new()
 	
-	# Test Horizontal
-	var countColor = 0
-	var countShape = 0
-	var countSize = 0
-	var countInside = 0
+	for i in range(0, BOARD_SIZE):
+		var horPiece = board[lastY][i]
+		var vertPiece = board[i][lastX]
+		var diagPiece = board[i][i]
+		var invDiagPiece = board[i][BOARD_SIZE - i - 1]
+		
+		if horPiece != null:
+			horizontalCounter.manage_piece(horPiece)
+		if vertPiece != null:
+			verticalCounter.manage_piece(vertPiece)
+		if diagPiece != null:
+			diagCounter.manage_piece(diagPiece)
+		if invDiagPiece != null:
+			invDiagCounter.manage_piece(invDiagPiece)
 	
-	var completeLine = true
-	
-	for x in range(0, BOARD_SIZE):
-		if board[lastY][x] == null:
-			completeLine = false
-		else:
-			countColor += board[lastY][x].color
-			countShape += board[lastY][x].shape
-			countSize += board[lastY][x].size
-			countInside += board[lastY][x].inside
-	
-	if completeLine:
-		win = countColor == BOARD_SIZE || countColor == 0 || \
-			  countShape == BOARD_SIZE || countShape == 0 || \
-			  countSize == BOARD_SIZE || countSize == 0 || \
-			  countInside == BOARD_SIZE || countInside == 0
-	
-	if !win:
-		# Test Vertical
-		countColor = 0
-		countShape = 0
-		countSize = 0
-		countInside = 0
-		completeLine = true
-		
-		for y in range(0, BOARD_SIZE):
-			if board[y][lastX] == null:
-				completeLine = false
-			else:
-				countColor += board[y][lastX].color
-				countShape += board[y][lastX].shape
-				countSize += board[y][lastX].size
-				countInside += board[y][lastX].inside
-		
-		if completeLine:
-			win = countColor == BOARD_SIZE || countColor == 0 || \
-			  countShape == BOARD_SIZE || countShape == 0 || \
-			  countSize == BOARD_SIZE || countSize == 0 || \
-			  countInside == BOARD_SIZE || countInside == 0
-
-	if !win:
-		# Test Diagonal \
-		countColor = 0
-		countShape = 0
-		countSize = 0
-		countInside = 0
-		completeLine = true
-		
-		for i in range(0, BOARD_SIZE):
-			if board[i][i] == null:
-				completeLine = false
-			else:
-				countColor += board[i][i].color
-				countShape += board[i][i].shape
-				countSize += board[i][i].size
-				countInside += board[i][i].inside
-		
-		if completeLine:
-			win = countColor == BOARD_SIZE || countColor == 0 || \
-			  countShape == BOARD_SIZE || countShape == 0 || \
-			  countSize == BOARD_SIZE || countSize == 0 || \
-			  countInside == BOARD_SIZE || countInside == 0
-			
-	if !win:
-		# Test Diagonal /
-		countColor = 0
-		countShape = 0
-		countSize = 0
-		countInside = 0
-		completeLine = true
-		
-		for i in range(0, BOARD_SIZE):
-			var piece = board[i][BOARD_SIZE - i - 1]
-			if piece == null:
-				completeLine = false
-			else:
-				countColor += piece.color
-				countShape += piece.shape
-				countSize += piece.size
-				countInside += piece.inside
-		
-		if completeLine:
-			win = countColor == BOARD_SIZE || countColor == 0 || \
-			  countShape == BOARD_SIZE || countShape == 0 || \
-			  countSize == BOARD_SIZE || countSize == 0 || \
-			  countInside == BOARD_SIZE || countInside == 0
-	return win
+	return horizontalCounter.is_win() || verticalCounter.is_win() || diagCounter.is_win() || invDiagCounter.is_win()
 
 func update_text():
 	var text = "À [color=" + currentPlayer.color + "]" + currentPlayer.nickname + "[/color]"
